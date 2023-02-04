@@ -31,7 +31,7 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -65,12 +65,12 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Grab"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""24f759cb-1680-491f-82e1-70108a039f6f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
