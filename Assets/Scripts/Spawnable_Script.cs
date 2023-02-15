@@ -16,15 +16,23 @@ public class Spawnable_Script : MonoBehaviour
     void Start()
     {
         // find ground
-        GameObject spawnPoint = GameObject.FindWithTag("Ground");
+        GameObject spawnPointGround = GameObject.FindWithTag("Ground");
+        GameObject spawnPointTable = GameObject.FindWithTag("Table");
 
         // if spawn-point is somewhere in the game --> spawn
-        if (spawnPoint != null)
+        if (spawnPointGround != null && spawnPointTable != null)
         {
             // spawn game object!
-            Instantiate(trash, spawnPoint.transform.position + new Vector3(0,10,0), Quaternion.identity);
+            Instantiate(trash, spawnPointGround.transform.position + new Vector3(0,10,0), Quaternion.identity);
 
-            Instantiate(belonging, spawnPoint.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
+            Instantiate(belonging, spawnPointTable.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
         }
     }
 }
+
+
+// take in two classes of objs: trash and belongings
+
+// each class contains several differenct kinds of objs (belongings have cards or books)
+
+// pick a random gameobject to spawn in that class
