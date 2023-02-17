@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531523364709368955, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: maxDistance
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 531523364709368955, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: cursorLocked

@@ -30,6 +30,9 @@ public class InputSystemInputs : MonoBehaviour {
 
     public void OnLook(InputValue value) {
         if (cursorInputForLook) {
+            // Debug.Log("OnLook - Raw: " + value.Get<Vector2>() + ", Viewport: " + Camera.main.ScreenToViewportPoint(value.Get<Vector2>()) + ", World: " + Camera.main.ScreenToWorldPoint(value.Get<Vector2>()));
+            // GameObject crossHand = GameObject.Find("CrossHand");
+            // Debug.Log("Mouse - Raw: " + crossHand.transform.position + ", Viewport: " + Camera.main.ScreenToViewportPoint(crossHand.transform.position) + ", World: " + Camera.main.ScreenToWorldPoint(crossHand.transform.position));
             LookInput(value.Get<Vector2>());
         }
     }
@@ -39,12 +42,11 @@ public class InputSystemInputs : MonoBehaviour {
     }
 
     public void OnGrab(InputValue value) {
-        // Debug.Log("In OnGrab");
-        //Debug.Log(Camera.main.ScreenToWorldPoint(Mouse.current.position));
-        // Debug.Log(Mouse.current.position.x.ReadValue());
-        // Debug.Log(Mouse.current.position.y.ReadValue());
-        GameObject crossHand = GameObject.Find("CrossHand");
-        GrabInput(crossHand.transform.position);
+        // GameObject crossHand = GameObject.Find("CrossHand");
+        // Debug.Log("Raw: " + crossHand.transform.position + ", Viewport: " + Camera.main.ScreenToViewportPoint(crossHand.transform.position) + ", World: " + Camera.main.ScreenToWorldPoint(crossHand.transform.position));
+        // Cross Hand position does not get updated for some reason - using same coords as the CrossHand script that tracks the mouse movement
+        Vector3 mousePosition = new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0f);
+        GrabInput(mousePosition);
     }
 
     public void MoveInput(Vector2 newMoveDirection) {
@@ -66,7 +68,9 @@ public class InputSystemInputs : MonoBehaviour {
     public void GrabInput(Vector3 grabDirection) {
         Ray grabRay = Camera.main.ScreenPointToRay(grabDirection);
         RaycastHit[] hits = Physics.RaycastAll(grabRay, maxDistance);
-        //Debug.DrawRay(grabRay.origin, grabRay.direction, Color.red, 8.0f);
+        Debug.DrawRay(grabRay.origin, grabRay.direction, Color.red, 4.0f);
+        // Ray grabRay2 = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        // Debug.DrawRay(grabRay2.origin, grabRay2.direction, Color.blue, 4.0f);
         RaycastHit hit;
         Grabbable grabbed;
         for (int i = 0; i < hits.Length; i++) {
@@ -75,9 +79,9 @@ public class InputSystemInputs : MonoBehaviour {
             grabbed = hit.transform.gameObject.GetComponent<Grabbable>();
             if (grabbed != null) {
                 grabbed.ExecuteGrab();
+                Debug.Log("Goodbye!");
                 break;
             }
-            Debug.Log("Goodbye!");
         }
     }
 
