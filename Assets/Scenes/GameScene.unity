@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc04adfdad47347dc873af64e742a804, type: 3}
---- !u!1 &305730405
+--- !u!1 &335254379
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,43 +200,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 305730407}
-  - component: {fileID: 305730406}
+  - component: {fileID: 335254381}
+  - component: {fileID: 335254380}
   m_Layer: 0
-  m_Name: SpawnableObjects
+  m_Name: Spawn_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &305730406
+--- !u!114 &335254380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305730405}
+  m_GameObject: {fileID: 335254379}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fb430a7203c14e768c4e487bab1e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trash: {fileID: 601920699660302588, guid: 5283dca2bc4e14e58bc4b737164c444b, type: 3}
-  belonging: {fileID: 5226632932382332551, guid: 4dffa6bd3386347b5b4bfaac7a643edb, type: 3}
---- !u!4 &305730407
+  prefabs: []
+--- !u!4 &335254381
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305730405}
+  m_GameObject: {fileID: 335254379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2502365, y: -2.7380905, z: -1.2664919}
+  m_LocalPosition: {x: 4.16287, y: -0.0039753914, z: -4.215871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450981872
 GameObject:
@@ -455,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8020492749066715962, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8020492749066715962, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1428,7 +1427,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7794472966003706008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7794472966003706008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_LocalPosition.x
