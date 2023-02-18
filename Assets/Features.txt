@@ -1,0 +1,8 @@
+Dev     Feature
+
+A		Randomly spawn items in appropriate places
+L		Main Menu, including Start Game, High Scores, and Options
+		Two-player mode (co-op, vs, maybe online?)
+		Level Design - Tutorial
+		Level Design - House
+		
