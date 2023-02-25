@@ -5,4 +5,16 @@ L		Main Menu, including Start Game, High Scores, and Options
 		Two-player mode (co-op, vs, maybe online?)
 		Level Design - Tutorial
 		Level Design - House
-		
+		Power-ups (thanks JoshuaY!)
+			Vaccuum cleaner to extend grab distance
+			Broom to push items together to be picked up altogether
+		When countdown gets close to zero, red border pulses on screen
+		Difficulty Adjustments (thanks JoshuaY!)
+			Bugs carry away objects
+			Sticky objects that require something to "unstick"
+			Easy - just click to collect, no powerups
+			Medium - Bugs carry away items, vaccuum powerup
+			Difficult - Bugs and sticky objects, broom and vaccum powerups
+		Name ideas:
+			Clean Sweep
+			
