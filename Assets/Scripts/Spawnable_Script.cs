@@ -4,43 +4,57 @@ using UnityEngine;
 
 public class Spawnable_Script : MonoBehaviour
 {
-    // grab game objects trash, belongings
+    // variables that grab array of trash and belongings
+    public GameObject[] trash_prefabs;
+    
+    public GameObject[] belongings_prefabs;
 
-    //public GameObject trash;
-    //public GameObject belonging;
-    public Object[] prefabs; 
+    // delcare two variables of the min and max distance gameobjects can spawn
+    private Vector3 SpawnPos;
+    private Quaternion RotatePos;
 
-    // check trash and belongings objects with a tag
+    private Vector3 tablePos;
 
-    // create tags around groundable objects and spawn the objects on the ground
 
-void Start()
-{
-    prefabs = Resources.LoadAll("SpawnableObjects");
-    // find ground
-    GameObject spawnPointGround = GameObject.FindWithTag("Ground");
-    GameObject spawnPointTable = GameObject.FindWithTag("Table");
 
+    void Start()
+    {
+        //prefabs = Resources.LoadAll("SpawnableObjects");
+        // find table
+        GameObject belongings_prefabs = GameObject.FindWithTag("Table");
+        // convert gameobject variable into vector3
+        Vector3 tablePos = belongings_prefabs.transform.position;
         // if spawn-point is somewhere in the game --> spawn
-        if (spawnPointGround != null && spawnPointTable != null)
+
+        SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
+        RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0,0);
+
+        SpawnRandom();
+ 
+    }
+
+    public void SpawnRandom()
+    {
+        
+        // belongings
+        foreach (GameObject x in belongings_prefabs)
         {
-            //// spawn game object!
-            //Instantiate(trash, spawnPointGround.transform.position + new Vector3(0,10,0), Quaternion.identity);
+            for (int i = 0; i <= 10; i++)
+            {
+                GameObject toSpawnTrash = trash_prefabs[Random.Range(0, trash_prefabs.Length)];
 
-            //Instantiate(belonging, spawnPointTable.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
-
-            //SpawnRandom();
+                Instantiate(toSpawnTrash, SpawnPos, RotatePos);
+            }
         }
-}
+        // trash
+        foreach (GameObject y in trash_prefabs)
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                GameObject toSpawnTrash = trash_prefabs[Random.Range(0, trash_prefabs.Length)];
 
-//public Object SpawnRandom()
-//{
-//    foreach(Object x in prefabs)
-//        {
-//            var toSpawn = prefabs[Random.Range(0, prefabs.Length)];
-//            var spawned = Instantiate(toSpawn);
-//            return spawned;
-//        }
-
-//}
+                Instantiate(toSpawnTrash, SpawnPos, RotatePos);
+            }
+        }
+    }
 }

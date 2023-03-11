@@ -221,7 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb430a7203c14e768c4e487bab1e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
+  trash_prefabs:
+  - {fileID: 103030, guid: 8b342121ff2be5a45b964062c2ec412f, type: 3}
+  - {fileID: 129966, guid: 44d893618ee70db4fbea9c13f14a89fb, type: 3}
+  belongings_prefabs:
+  - {fileID: 8702249410611217806, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
+  - {fileID: 1595064583986059574, guid: b25277b7e28aa4446a996b11092272d7, type: 3}
 --- !u!4 &335254381
 Transform:
   m_ObjectHideFlags: 0
