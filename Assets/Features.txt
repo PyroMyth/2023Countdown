@@ -1,7 +1,7 @@
 Dev     Feature
 
 A		Randomly spawn items in appropriate places
-L		Main Menu, including Start Game, High Scores, and Options
+L		Main Menu, including Start Game, /*High Scores,*/ Options, and Credits
 		Two-player mode (co-op, vs, maybe online?)
 		Level Design - Tutorial
 		Level Design - House
@@ -12,9 +12,10 @@ L		Main Menu, including Start Game, High Scores, and Options
 		Difficulty Adjustments (thanks JoshuaY!)
 			Bugs carry away objects
 			Sticky objects that require something to "unstick"
+			Glue objects back together
+			Carry objects to the right places
 			Easy - just click to collect, no powerups
 			Medium - Bugs carry away items, vaccuum powerup
 			Difficult - Bugs and sticky objects, broom and vaccum powerups
 		Name ideas:
 			Clean Sweep
-			
