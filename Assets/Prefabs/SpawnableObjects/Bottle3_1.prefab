@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3370900}
   - component: {fileID: 2336512}
   - component: {fileID: 9566474}
+  - component: {fileID: -3151798024766642017}
+  - component: {fileID: 5816432245426858509}
+  - component: {fileID: 173398043083169450}
   m_Layer: 0
   m_Name: Bottle3_1
   m_TagString: Ground
@@ -104,3 +107,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &-3151798024766642017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20000005, y: 0.20000005, z: 0.480074}
+  m_Center: {x: 0.000015271291, y: -0.000000012502469, z: 0.20975663}
+--- !u!54 &5816432245426858509
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103030}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &173398043083169450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0

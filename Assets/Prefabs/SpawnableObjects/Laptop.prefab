@@ -97,6 +97,9 @@ GameObject:
   - component: {fileID: 7154769223905743671}
   - component: {fileID: 4221968740955046683}
   - component: {fileID: 4684647133930494794}
+  - component: {fileID: 571115190782467737}
+  - component: {fileID: -918725580179926258}
+  - component: {fileID: -8831168798588811839}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Table
@@ -173,3 +176,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &571115190782467737
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8702249410611217806}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-918725580179926258
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8702249410611217806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.52771616, y: 0.021157421, z: 0.46614346}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8831168798588811839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8702249410611217806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
