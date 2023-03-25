@@ -3,17 +3,23 @@ Dev     Feature
 A		Randomly spawn items in appropriate places
 L		Main Menu, including Start Game, /*High Scores,*/ Options, and Credits
 		Two-player mode (co-op, vs, maybe online?)
-		Level Design - Tutorial
+L		Level Design - Tutorial
 		Level Design - House
-		Power-ups (thanks JoshuaY!)
+		Implement method to save progress
+		Power-ups (thanks JoshuaY! & LeoG!)
 			Vaccuum cleaner to extend grab distance
 			Broom to push items together to be picked up altogether
-		When countdown gets close to zero, red border pulses on screen
+			Speed up (drink)
+			Stamina up (allow for picking up things faster)
+DONE	When countdown gets close to zero, red border pulses on screen
 		Difficulty Adjustments (thanks JoshuaY!)
 			Bugs carry away objects
 			Sticky objects that require something to "unstick"
 			Glue objects back together
 			Carry objects to the right places
+			People still at the party, they don't want to leave, have to avoid them and when they leave, they drop more trash
+			Need certain items or clean up a certain amount to make people leave
+			Stamina - lose when you go through crowd or as you are walking around
 			Easy - just click to collect, no powerups
 			Medium - Bugs carry away items, vaccuum powerup
 			Difficult - Bugs and sticky objects, broom and vaccum powerups

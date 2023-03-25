@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1619,7 +1619,10 @@ MonoBehaviour:
   counterSeconds: 120
   minAlpha: 0.3764706
   maxAlpha: 0.76862746
-  warningStartTime: 115
+  alphaStep: 0.02
+  warningStartTime: 120
+  pulseSpeedSeconds: 0.05
+  pulseSpeedReductionMultiplier: 0.2
 --- !u!224 &1787758754 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
@@ -1922,11 +1925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 75.4803
+      value: 74.1528
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70.427
+      value: 86.8765
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1958,11 +1961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 233.56699
+      value: 232.91519
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -74.69129
+      value: -77.298546
       objectReference: {fileID: 0}
     - target: {fileID: 1503420580507735871, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
