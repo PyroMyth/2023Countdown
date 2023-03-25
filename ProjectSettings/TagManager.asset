@@ -8,6 +8,7 @@ TagManager:
   - Grabbable
   - Ground
   - Table
+  - SpawnBlocker
   layers:
   - Default
   - TransparentFX
