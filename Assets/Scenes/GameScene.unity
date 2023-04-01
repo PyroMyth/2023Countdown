@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3496436184412062411, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 3496436184412062411, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: m_LocalPosition.y
@@ -312,6 +312,7 @@ MonoBehaviour:
   - {fileID: 8702249410611217806, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
   - {fileID: 1595064583986059574, guid: b25277b7e28aa4446a996b11092272d7, type: 3}
   spawnable_object_amount: 3
+
   spawn_count: 0
 --- !u!4 &335254381
 Transform:
@@ -558,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 965075616528260763, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3320400766194581496, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_Name
       value: Desk
@@ -618,10 +623,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 8943055931900633743, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+
     m_RemovedComponents:
     - {fileID: 8823096534809728446, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
@@ -1097,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1425430597568797392, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 1425430597568797392, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1328,18 +1335,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238902587}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1347131756 stripped
+
 GameObject:
   m_CorrespondingSourceObject: {fileID: 965075616528260763, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
   m_PrefabInstance: {fileID: 642874420}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!114 &1347131762
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1347131756}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa9f676ef204413cb77180e10d3c0b3, type: 3}
@@ -1575,6 +1588,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.443
       objectReference: {fileID: 0}
+    - target: {fileID: 1321434222327060310, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2714609922776125716, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1646,6 +1663,10 @@ PrefabInstance:
     - target: {fileID: 8670232813343506008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_TagString
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746876555579329123, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2978158191522999060, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
