@@ -13,63 +13,46 @@ public class Spawnable_Script : MonoBehaviour
     private Vector3 SpawnPos;
     private Quaternion RotatePos;
 
-    public int spawnable_object_amount = 3;
 
-    public int spawn_count = 0;
-
-    
 
 
 
     void Start()
     {
-        SpawnRandom();
- 
+        SpawnRandom("Table", 10);
+        SpawnRandom("Ground", 10);
+
     }
 
-    public void SpawnRandom()
+    /*spawns objects in a random position
+    -it accepts a string that is the target for the object to instantiate on
+    -a spawn count that controls how many objects can be spawned in the scene
+    -the spawn object, that grabs a random object from the list of trash/belongings
+    -a gameobject array of either trash or belongings
+    */
+
+    public void SpawnRandom(string target, int spawn_count)
     {
 
-        // belongings
-
-        for (int i = 0; i <= spawnable_object_amount; i++)
+        // trash --> loop 4 times
+        for (int i = 0; i <= spawn_count; i++)
         {
+            // find the ground
+            GameObject instantiate_target = GameObject.FindGameObjectWithTag(target);
+            // grab a random position
             SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
+            // grab a random rotation
             RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0, 0);
 
-            GameObject toSpawnTrash = trash_prefabs[Random.Range(0,trash_prefabs.Length)];
-
-            Instantiate(toSpawnTrash, SpawnPos, RotatePos);
-        }
-
-        // trash
-
-        for (int i = 0; i <= spawnable_object_amount; i++)
-        {
-
-            // find table
-            GameObject belongings_instantiate_target = GameObject.FindWithTag("Table");
-
-            
-
-            SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
-            RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0, 0);
-
-            if (belongings_instantiate_target != null) // If the object exists
+            if (instantiate_target != null) // If the object exists
             {
-                if (spawn_count <= 5)
-                {
-
-                    // choose a random object
-                    GameObject toSpawnBelonging = belongings_prefabs[Random.Range(0, trash_prefabs.Length)];
-                    // declare variable of instantiated prefab
-                    GameObject spawnedBelonging = Instantiate(toSpawnBelonging, SpawnPos, RotatePos);
-                    // spawn the prefab on the table
-                    spawnedBelonging.transform.position = belongings_instantiate_target.transform.position; // Set the spawned object's parent to the target object
-                                                                                                            // add 1 to spawn amount
-                    spawn_count++;
-                }
-            }            
+                // choose a random belonging object
+                GameObject spawnObject = trash_prefabs[Random.Range(0, trash_prefabs.Length)];
+                // declare variable of instantiated prefab
+                GameObject instantiateObject = Instantiate(spawnObject, SpawnPos, RotatePos);
+                // spawn the prefab on the table
+                spawnObject.transform.position = instantiate_target.transform.position; // Set the spawned object's parent to the target object
+            }
         }
     }
 }
