@@ -6,12 +6,14 @@ public class Spawnable_Script : MonoBehaviour
 {
     // variables that grab array of trash and belongings
     public GameObject[] trash_prefabs;
-    
+
     public GameObject[] belongings_prefabs;
 
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
     private Quaternion RotatePos;
+
+    public GameObject table;
 
 
 
@@ -19,8 +21,8 @@ public class Spawnable_Script : MonoBehaviour
 
     void Start()
     {
-        SpawnRandom("Table", 10);
-        SpawnRandom("Ground", 10);
+        SpawnRandom("Table", 10, belongings_prefabs);
+        SpawnRandom("Ground", 10, trash_prefabs);
 
     }
 
@@ -31,7 +33,7 @@ public class Spawnable_Script : MonoBehaviour
     -a gameobject array of either trash or belongings
     */
 
-    public void SpawnRandom(string target, int spawn_count)
+    public void SpawnRandom(string target, int spawn_count, GameObject[] spawnableGameObjsArray)
     {
 
         // trash --> loop 4 times
@@ -42,16 +44,34 @@ public class Spawnable_Script : MonoBehaviour
             // grab a random position
             SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
             // grab a random rotation
-            RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0, 0);
+            RotatePos = new Quaternion(0, Random.Range(0f, 100f), 0, 0);
 
             if (instantiate_target != null) // If the object exists
             {
                 // choose a random belonging object
-                GameObject spawnObject = trash_prefabs[Random.Range(0, trash_prefabs.Length)];
-                // declare variable of instantiated prefab
-                GameObject instantiateObject = Instantiate(spawnObject, SpawnPos, RotatePos);
-                // spawn the prefab on the table
-                spawnObject.transform.position = instantiate_target.transform.position; // Set the spawned object's parent to the target object
+                GameObject spawnObject = spawnableGameObjsArray[Random.Range(0, spawnableGameObjsArray.Length)];
+                if (target == "Ground")
+                {
+                    // declare variable of instantiated prefab
+                    Instantiate(spawnObject, SpawnPos, RotatePos);
+                }
+
+                else if (target == "Table")
+                {
+                    // declare variable that grabs the table position
+                    Vector3 tablePos = table.transform.position;
+                    Debug.Log("table position is " + tablePos);
+                    // declare variable that grabs boxcollider size on x position
+                    BoxCollider tableCollider = table.GetComponent<BoxCollider>();
+                    Vector3 colliderSize = tableCollider.size;
+                    Debug.Log("table collider size is " + colliderSize);
+                    // declare spawn variable that randomizes the table (pos.x - (collider.x/2)), (pos.x + (collider.x/2))
+                    // do each of these on the appropraite axis
+                    Vector3 tableSpawnPos = new Vector3(Random.Range(tablePos.x - (colliderSize.x / 2), tablePos.x + (colliderSize.x / 2)), 1.5f, Random.Range(tablePos.z - (colliderSize.z / 2), tablePos.z + (colliderSize.z / 2)));
+                    Debug.Log("spawned object is " + tableSpawnPos);
+                    Instantiate(spawnObject, tableSpawnPos, RotatePos);
+                    // set the trash object to the calculated vector3
+                }
             }
         }
     }

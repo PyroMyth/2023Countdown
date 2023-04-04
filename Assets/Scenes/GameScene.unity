@@ -311,8 +311,7 @@ MonoBehaviour:
   belongings_prefabs:
   - {fileID: 8702249410611217806, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
   - {fileID: 1595064583986059574, guid: b25277b7e28aa4446a996b11092272d7, type: 3}
-  spawnable_object_amount: 3
-  spawn_count: 0
+  table: {fileID: 689977801}
 --- !u!4 &335254381
 Transform:
   m_ObjectHideFlags: 0

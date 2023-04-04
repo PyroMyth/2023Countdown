@@ -12,7 +12,7 @@ public class SpawnBlocker : MonoBehaviour
     {
         if (other.CompareTag(table_check) || other.CompareTag(ground_check))
         {
-            Debug.Log("The object with the tag " + ground_check + " has been touched.");
+            Destroy(gameObject);
         }
     }
 }
