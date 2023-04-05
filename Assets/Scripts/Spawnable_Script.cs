@@ -13,14 +13,23 @@ public class Spawnable_Script : MonoBehaviour
     private Vector3 SpawnPos;
     private Quaternion RotatePos;
 
-    public GameObject table;
+    private GameObject[] tableArray;
 
 
+
+
+    // Issue 1: trash belongings falling through the ground
+
+    // Issue 2: belongings spawning only on 1 table
+
+    // Issue 3: 1000+ audio listeners spawning
 
 
 
     void Start()
     {
+        tableArray = GameObject.FindGameObjectsWithTag("Table");
+
         SpawnRandom("Table", 10, belongings_prefabs);
         SpawnRandom("Ground", 10, trash_prefabs);
 
@@ -59,16 +68,14 @@ public class Spawnable_Script : MonoBehaviour
                 else if (target == "Table")
                 {
                     // declare variable that grabs the table position
-                    Vector3 tablePos = table.transform.position;
-                    Debug.Log("table position is " + tablePos);
+                    // GameObject spawnObject = spawnableGameObjsArray[Random.Range(0, spawnableGameObjsArray.Length)];
+                    Vector3 tablePos = tableArray[Random.Range(0, tableArray.Length - 1)].transform.position;
                     // declare variable that grabs boxcollider size on x position
-                    BoxCollider tableCollider = table.GetComponent<BoxCollider>();
+                    BoxCollider tableCollider = tableArray[Random.Range(0, tableArray.Length - 1)].GetComponent<BoxCollider>();
                     Vector3 colliderSize = tableCollider.size;
-                    Debug.Log("table collider size is " + colliderSize);
                     // declare spawn variable that randomizes the table (pos.x - (collider.x/2)), (pos.x + (collider.x/2))
                     // do each of these on the appropraite axis
                     Vector3 tableSpawnPos = new Vector3(Random.Range(tablePos.x - (colliderSize.x / 2), tablePos.x + (colliderSize.x / 2)), 1.5f, Random.Range(tablePos.z - (colliderSize.z / 2), tablePos.z + (colliderSize.z / 2)));
-                    Debug.Log("spawned object is " + tableSpawnPos);
                     Instantiate(spawnObject, tableSpawnPos, RotatePos);
                     // set the trash object to the calculated vector3
                 }
