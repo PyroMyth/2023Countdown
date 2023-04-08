@@ -15,21 +15,10 @@ public class Spawnable_Script : MonoBehaviour
 
     private GameObject[] tableArray;
 
-
-
-
-    // Issue 1: trash belongings falling through the ground
-
-    // Issue 2: belongings spawning only on 1 table
-
-    // Issue 3: 1000+ audio listeners spawning
-
-
-
     void Start()
     {
+        
         tableArray = GameObject.FindGameObjectsWithTag("Table");
-
         SpawnRandom("Table", 10, belongings_prefabs);
         SpawnRandom("Ground", 10, trash_prefabs);
 
@@ -51,7 +40,7 @@ public class Spawnable_Script : MonoBehaviour
             // find the ground
             GameObject instantiate_target = GameObject.FindGameObjectWithTag(target);
             // grab a random position
-            SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
+            SpawnPos = new Vector3(Random.Range(-10f, 10), 1, Random.Range(-10f, 10f));
             // grab a random rotation
             RotatePos = new Quaternion(0, Random.Range(0f, 100f), 0, 0);
 
@@ -59,6 +48,7 @@ public class Spawnable_Script : MonoBehaviour
             {
                 // choose a random belonging object
                 GameObject spawnObject = spawnableGameObjsArray[Random.Range(0, spawnableGameObjsArray.Length)];
+                
                 if (target == "Ground")
                 {
                     // declare variable of instantiated prefab
@@ -67,11 +57,12 @@ public class Spawnable_Script : MonoBehaviour
 
                 else if (target == "Table")
                 {
+                    // set a new var of a random table in the table array
+                    GameObject table = tableArray[Random.Range(0, tableArray.Length)];
                     // declare variable that grabs the table position
-                    // GameObject spawnObject = spawnableGameObjsArray[Random.Range(0, spawnableGameObjsArray.Length)];
-                    Vector3 tablePos = tableArray[Random.Range(0, tableArray.Length - 1)].transform.position;
+                    Vector3 tablePos = table.transform.position;
                     // declare variable that grabs boxcollider size on x position
-                    BoxCollider tableCollider = tableArray[Random.Range(0, tableArray.Length - 1)].GetComponent<BoxCollider>();
+                    BoxCollider tableCollider = table.GetComponent<BoxCollider>();
                     Vector3 colliderSize = tableCollider.size;
                     // declare spawn variable that randomizes the table (pos.x - (collider.x/2)), (pos.x + (collider.x/2))
                     // do each of these on the appropraite axis
