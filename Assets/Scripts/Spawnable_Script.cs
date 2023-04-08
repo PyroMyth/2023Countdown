@@ -6,70 +6,71 @@ public class Spawnable_Script : MonoBehaviour
 {
     // variables that grab array of trash and belongings
     public GameObject[] trash_prefabs;
-    
+
     public GameObject[] belongings_prefabs;
 
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
     private Quaternion RotatePos;
 
-    public int spawnable_object_amount = 3;
-
-    public int spawn_count = 0;
-
-    
-
-
+    private GameObject[] tableArray;
 
     void Start()
     {
-        SpawnRandom();
- 
+        
+        tableArray = GameObject.FindGameObjectsWithTag("Table");
+        SpawnRandom("Table", 10, belongings_prefabs);
+        SpawnRandom("Ground", 10, trash_prefabs);
+
     }
 
-    public void SpawnRandom()
+    /*spawns objects in a random position
+    -it accepts a string that is the target for the object to instantiate on
+    -a spawn count that controls how many objects can be spawned in the scene
+    -the spawn object, that grabs a random object from the list of trash/belongings
+    -a gameobject array of either trash or belongings
+    */
+
+    public void SpawnRandom(string target, int spawn_count, GameObject[] spawnableGameObjsArray)
     {
 
-        // belongings
-
-        for (int i = 0; i <= spawnable_object_amount; i++)
+        // trash --> loop 4 times
+        for (int i = 0; i <= spawn_count; i++)
         {
-            SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
-            RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0, 0);
+            // find the ground
+            GameObject instantiate_target = GameObject.FindGameObjectWithTag(target);
+            // grab a random position
+            SpawnPos = new Vector3(Random.Range(-10f, 10), 1, Random.Range(-10f, 10f));
+            // grab a random rotation
+            RotatePos = new Quaternion(0, Random.Range(0f, 100f), 0, 0);
 
-            GameObject toSpawnTrash = trash_prefabs[Random.Range(0,trash_prefabs.Length)];
-
-            Instantiate(toSpawnTrash, SpawnPos, RotatePos);
-        }
-
-        // trash
-
-        for (int i = 0; i <= spawnable_object_amount; i++)
-        {
-
-            // find table
-            GameObject belongings_instantiate_target = GameObject.FindWithTag("Table");
-
-            
-
-            SpawnPos = new Vector3(Random.Range(-10f, 10), Random.Range(0, 1), Random.Range(-10f, 10f));
-            RotatePos = new Quaternion(Random.Range(0f, 100f), 0, 0, 0);
-
-            if (belongings_instantiate_target != null) // If the object exists
+            if (instantiate_target != null) // If the object exists
             {
-                if (spawn_count <= 5)
+                // choose a random belonging object
+                GameObject spawnObject = spawnableGameObjsArray[Random.Range(0, spawnableGameObjsArray.Length)];
+                
+                if (target == "Ground")
                 {
-
-                    // choose a random object
-                    GameObject toSpawnBelonging = belongings_prefabs[Random.Range(0, trash_prefabs.Length)];
                     // declare variable of instantiated prefab
-                    GameObject spawnedBelonging = Instantiate(toSpawnBelonging, SpawnPos, RotatePos);
-                    // spawn the prefab on the table
-                    spawnedBelonging.transform.position = belongings_instantiate_target.transform.position; // Set the spawned object's parent to the target object
-                                                                                                            // add 1 to spawn amount
-                    spawn_count++;
+                    Instantiate(spawnObject, SpawnPos, RotatePos);
                 }
-            }            
+
+                else if (target == "Table")
+                {
+                    // set a new var of a random table in the table array
+                    GameObject table = tableArray[Random.Range(0, tableArray.Length)];
+                    // declare variable that grabs the table position
+                    Vector3 tablePos = table.transform.position;
+                    // declare variable that grabs boxcollider size on x position
+                    BoxCollider tableCollider = table.GetComponent<BoxCollider>();
+                    Vector3 colliderSize = tableCollider.size;
+                    // declare spawn variable that randomizes the table (pos.x - (collider.x/2)), (pos.x + (collider.x/2))
+                    // do each of these on the appropraite axis
+                    Vector3 tableSpawnPos = new Vector3(Random.Range(tablePos.x - (colliderSize.x / 2), tablePos.x + (colliderSize.x / 2)), 1.5f, Random.Range(tablePos.z - (colliderSize.z / 2), tablePos.z + (colliderSize.z / 2)));
+                    Instantiate(spawnObject, tableSpawnPos, RotatePos);
+                    // set the trash object to the calculated vector3
+                }
+            }
         }
     }
 }
