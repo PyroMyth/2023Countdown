@@ -9,7 +9,7 @@ public class Grabbable : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void ApplyPoints() {
+    protected void ApplyPoints() {
         // TODO: add logic to apply points to player's score
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputSystemInputs : MonoBehaviour {
     [Header("Character Input Values")]
@@ -69,9 +70,21 @@ public class InputSystemInputs : MonoBehaviour {
         Ray grabRay = Camera.main.ScreenPointToRay(grabDirection);
         RaycastHit[] hits = Physics.RaycastAll(grabRay, maxDistance);
         Debug.DrawRay(grabRay.origin, grabRay.direction, Color.red, 4.0f);
-        // Ray grabRay2 = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        // Debug.DrawRay(grabRay2.origin, grabRay2.direction, Color.blue, 4.0f);
         RaycastHit hit;
+        
+        // Hijack the logic for the tutorial levels
+        if (SceneManager.GetActiveScene().name.Contains("Tutorial")) {
+            for (int i = 0; i < hits.Length; i++) {
+                hit = hits[i];
+                Debug.Log("Hit #" + i + " = " + hit.transform.gameObject.name);
+                TutorialHelper helper = hit.transform.gameObject.GetComponent<TutorialHelper>();
+                if (helper != null) {
+                    helper.ExecuteGrab();
+                    Debug.Log("Goodbye from the tutorial!");
+                    return;
+                }
+            }
+        }
         Grabbable grabbed;
         for (int i = 0; i < hits.Length; i++) {
             hit = hits[i];

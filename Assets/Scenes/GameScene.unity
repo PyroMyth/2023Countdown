@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3496436184412062411, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 3496436184412062411, guid: bc04adfdad47347dc873af64e742a804, type: 3}
       propertyPath: m_LocalPosition.y
@@ -418,25 +418,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450981872}
   m_CullTransparentMesh: 1
---- !u!1 &469494194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8804806150156690563, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
-  m_PrefabInstance: {fileID: 2097560245}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &469494200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469494194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa9f676ef204413cb77180e10d3c0b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  table_check: Table
-  ground_check: Ground
 --- !u!1 &635749819
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +540,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 965075616528260763, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3320400766194581496, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_Name
       value: Desk
@@ -617,10 +602,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8672592629014630059, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943055931900633743, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -1014,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1425430597568797392, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 1425430597568797392, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1245,18 +1226,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238902587}
   m_CullTransparentMesh: 1
---- !u!1 &1347131756 stripped
+--- !u!1 &1273421094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 965075616528260763, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
   m_PrefabInstance: {fileID: 642874420}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1347131762
+--- !u!114 &1273421099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347131756}
+  m_GameObject: {fileID: 1273421094}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa9f676ef204413cb77180e10d3c0b3, type: 3}
@@ -1492,13 +1473,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.443
       objectReference: {fileID: 0}
+    - target: {fileID: 1321434222327060310, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2714609922776125716, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4707621857711867817, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5785522513934598704, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1552,10 +1533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8454563082479252031, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8670232813343506008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_Name
       value: Dinner Table
@@ -1563,6 +1540,10 @@ PrefabInstance:
     - target: {fileID: 8670232813343506008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
       propertyPath: m_TagString
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746876555579329123, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2978158191522999060, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
