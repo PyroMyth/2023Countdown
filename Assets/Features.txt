@@ -1,27 +1,44 @@
-Dev     Feature
-
-A		Randomly spawn items in appropriate places
-L		Main Menu, including Start Game, /*High Scores,*/ Options, and Credits
-		Two-player mode (co-op, vs, maybe online?)
-L		Level Design - Tutorial
+Feature		Dev     Feature
+Number
+		NEEDED FOR MINIMAL VIABLE PRODUCT (MVP)
+FEAT_1		A		Randomly spawn items in appropriate places
+FEAT_2		L		Main Menu, including Start Game, Options, and Credits
+FEAT_3		L		Level Design - Tutorial
 		Level Design - House
-		Implement method to save progress
+FEAT_4.1			Living Room
+FEAT_4.2			Family Room
+FEAT_4.3			Kitchen
+FEAT_4.4			Bathroom
+FEAT_4.5			Bedroom
+FEAT_4.6			Basement
+FEAT_5				Implement method to save progress
+FEAT_6		A		Implement Arms and animation
+FEAT_7				In-game menu, pause, etc.
+
+		FUNCTIONAL UPDATES
+FUNC_1.1			Add High Scores to Main Menu
+
+		COMPLETED
+DONE		L		When countdown gets close to zero, red border pulses on screen
+
+		NICE TO HAVES (Potential content for game updates)
 		Power-ups (thanks JoshuaY! & LeoG!)
-			Vaccuum cleaner to extend grab distance
-			Broom to push items together to be picked up altogether
-			Speed up (drink)
-			Stamina up (allow for picking up things faster)
-DONE	When countdown gets close to zero, red border pulses on screen
+UPGR_1.1				Vaccuum cleaner to extend grab distance
+UPGR_1.2				Broom to push items together to be picked up altogether
+UPGR_1.3				Speed up (drink)
+UPGR_1.4				Stamina up (allow for picking up things faster)
+UPGR_2				Two-player mode (co-op, vs, maybe online?)
 		Difficulty Adjustments (thanks JoshuaY!)
-			Bugs carry away objects
-			Sticky objects that require something to "unstick"
-			Glue objects back together
-			Carry objects to the right places
-			People still at the party, they don't want to leave, have to avoid them and when they leave, they drop more trash
-			Need certain items or clean up a certain amount to make people leave
-			Stamina - lose when you go through crowd or as you are walking around
 			Easy - just click to collect, no powerups
 			Medium - Bugs carry away items, vaccuum powerup
 			Difficult - Bugs and sticky objects, broom and vaccum powerups
+UPGR_3				Bugs carry away objects
+UPGR_4				Sticky objects that require something to "unstick"
+UPGR_5				Glue objects back together
+UPGR_6				Carry objects to the right places
+UPGR_7				People still at the party, they don't want to leave, have to avoid them and when they leave, they drop more trash
+UPGR_8				Need certain items or clean up a certain amount to make people leave
+UPGR_9				Stamina - lose when you go through crowd or as you are walking around
+
 		Name ideas:
 			Clean Sweep
