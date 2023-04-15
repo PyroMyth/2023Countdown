@@ -260,6 +260,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Pause Menu",
+            "id": "a20165a2-7640-4f93-850f-fe8f4fa55ec5",
+            "actions": [
+                {
+                    "name": "PauseClick",
+                    "type": "PassThrough",
+                    "id": "77199f64-b5d1-45f5-ab6e-29f3c5dbaece",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PauseEscape",
+                    "type": "Button",
+                    "id": "e73e462b-6904-4c18-bf0f-63e1745febab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "115dae44-21d0-4bc2-8d6d-ec361f616b35",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "PauseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab697272-4d61-4e62-bd77-1a9a2f9fd448",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "PauseEscape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

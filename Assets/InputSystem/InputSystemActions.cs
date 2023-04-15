@@ -282,6 +282,54 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Pause Menu"",
+            ""id"": ""a20165a2-7640-4f93-850f-fe8f4fa55ec5"",
+            ""actions"": [
+                {
+                    ""name"": ""PauseClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""77199f64-b5d1-45f5-ab6e-29f3c5dbaece"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseEscape"",
+                    ""type"": ""Button"",
+                    ""id"": ""e73e462b-6904-4c18-bf0f-63e1745febab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""115dae44-21d0-4bc2-8d6d-ec361f616b35"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""PauseClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab697272-4d61-4e62-bd77-1a9a2f9fd448"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""PauseEscape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -342,6 +390,10 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        // Pause Menu
+        m_PauseMenu = asset.FindActionMap("Pause Menu", throwIfNotFound: true);
+        m_PauseMenu_PauseClick = m_PauseMenu.FindAction("PauseClick", throwIfNotFound: true);
+        m_PauseMenu_PauseEscape = m_PauseMenu.FindAction("PauseEscape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -470,6 +522,47 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Pause Menu
+    private readonly InputActionMap m_PauseMenu;
+    private IPauseMenuActions m_PauseMenuActionsCallbackInterface;
+    private readonly InputAction m_PauseMenu_PauseClick;
+    private readonly InputAction m_PauseMenu_PauseEscape;
+    public struct PauseMenuActions
+    {
+        private @InputSystemActions m_Wrapper;
+        public PauseMenuActions(@InputSystemActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PauseClick => m_Wrapper.m_PauseMenu_PauseClick;
+        public InputAction @PauseEscape => m_Wrapper.m_PauseMenu_PauseEscape;
+        public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseMenuActions instance)
+        {
+            if (m_Wrapper.m_PauseMenuActionsCallbackInterface != null)
+            {
+                @PauseClick.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseClick;
+                @PauseClick.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseClick;
+                @PauseClick.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseClick;
+                @PauseEscape.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseEscape;
+                @PauseEscape.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseEscape;
+                @PauseEscape.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseEscape;
+            }
+            m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PauseClick.started += instance.OnPauseClick;
+                @PauseClick.performed += instance.OnPauseClick;
+                @PauseClick.canceled += instance.OnPauseClick;
+                @PauseEscape.started += instance.OnPauseEscape;
+                @PauseEscape.performed += instance.OnPauseEscape;
+                @PauseEscape.canceled += instance.OnPauseEscape;
+            }
+        }
+    }
+    public PauseMenuActions @PauseMenu => new PauseMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -514,5 +607,10 @@ public partial class @InputSystemActions : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IPauseMenuActions
+    {
+        void OnPauseClick(InputAction.CallbackContext context);
+        void OnPauseEscape(InputAction.CallbackContext context);
     }
 }
