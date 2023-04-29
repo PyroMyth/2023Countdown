@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Table
   - SpawnBlocker
+  - Button
   layers:
   - Default
   - TransparentFX

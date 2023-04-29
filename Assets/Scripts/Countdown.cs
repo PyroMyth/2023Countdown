@@ -48,6 +48,14 @@ public class Countdown : MonoBehaviour {
         isAdding = true;
     }
 
+    public void Pause() {
+        counterRunning = false;
+    }
+
+    public void Restart() {
+        counterRunning = true;
+    }
+
     // Update is called once per frame
     void FixedUpdate() {
         // When the counter is running
