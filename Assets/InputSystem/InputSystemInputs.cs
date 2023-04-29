@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class InputSystemInputs : MonoBehaviour {
     [Header("Character Input Values")]
@@ -66,14 +67,12 @@ public class InputSystemInputs : MonoBehaviour {
         TogglePause();
     }
 
-    public void OnPauseClick(InputValue value) {
-        Debug.Log(value.Get<float>());
-        Vector3 mousePosition = new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0f);
-        Debug.Log(mousePosition);
-    }
-
-    public void OnPauseEscape(InputValue value) {
-        TogglePause();
+    public void OnClick(InputValue value) {
+        if (isPaused) {
+            Vector3 mousePosition = new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0f);
+            Debug.Log(mousePosition);
+            HandlePauseClick(mousePosition);
+        }
     }
 
     public void MoveInput(Vector2 newMoveDirection) {
@@ -130,12 +129,22 @@ public class InputSystemInputs : MonoBehaviour {
         isPaused = !isPaused;
         Debug.Log("In TogglePause...isPaused after toggle? " + isPaused);
         if (isPaused) {
-            playerInput.currentActionMap.Disable();
-            // playerInput.SwitchCurrentActionMap("Pause Menu");
+            playerInput.SwitchCurrentActionMap("UI");
         } else {
-            // playerInput.SwitchCurrentActionMap("Player");
-            playerInput.currentActionMap.Enable();
+            // Use a co-routine to switch back to the player action map
+            // This way, if a pause button is on top of an item in the scene,
+            // it won't be grabbed as the pause is being toggled off
+            StartCoroutine(SwitchToPlayerActionMap());
         }
+    }
+
+    private IEnumerator SwitchToPlayerActionMap() {
+        yield return new WaitForSecondsRealtime(0.5f);
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+
+    private void HandlePauseClick(Vector3 mousePosition) {
+        PauseMenu.HandleClick(mousePosition);
     }
 
     public bool GetIsPaused() {

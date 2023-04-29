@@ -22,11 +22,12 @@ FUNC_1.1			Add High Scores to Main Menu
 DONE		L		When countdown gets close to zero, red border pulses on screen
 
 		NICE TO HAVES (Potential content for game updates)
-		Power-ups (thanks JoshuaY! & LeoG!)
+		Power-ups (thanks JoshuaY! & LeoG! &IanR!)
 UPGR_1.1				Vaccuum cleaner to extend grab distance
 UPGR_1.2				Broom to push items together to be picked up altogether
 UPGR_1.3				Speed up (drink)
 UPGR_1.4				Stamina up (allow for picking up things faster)
+UPGR_1.5				Reach Extender (allows you to grab things from futher away, limited number of uses)
 UPGR_2				Two-player mode (co-op, vs, maybe online?)
 		Difficulty Adjustments (thanks JoshuaY!)
 			Easy - just click to collect, no powerups

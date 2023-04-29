@@ -8,12 +8,15 @@ public class PauseMenu : MonoBehaviour {
     private static Countdown countdownTimer;
     private static InputSystemInputs inputSystem;
     private static GameObject[] pauseButtons;
+    private static LevelLoader levelLoad;
+    
     void Awake() {
         pausePanel = GameObject.Find("Panel Pause Menu");
         pauseButtons = GetPauseButtons();
         pausePanel.SetActive(false);
         countdownTimer = GameObject.Find("Timer").GetComponent<Countdown>();
         inputSystem = GameObject.Find("PlayerCapsule").GetComponent<InputSystemInputs>();
+        levelLoad = GameObject.Find("GameCanvas").GetComponent<LevelLoader>();
     }
 
     private GameObject[] GetPauseButtons() {
@@ -41,39 +44,40 @@ public class PauseMenu : MonoBehaviour {
                 pausePanel.SetActive(true);
             }
         }
-        //inputSystem.OnPause(null);
     }
 
     public static void ExitPauseMenu() {
-        Toggle(false);
         inputSystem.OnPause(null);
     }
 
     public static void HandleClick(Vector3 mousePosition) {
         string clicking = IsClicking(mousePosition);
-        if (clicking == "Button Return to Game") {
-
-        } else if (clicking == "Button Main Menu") {
-
+        if (clicking.IndexOf("Return to Game") > -1) {
+            ExitPauseMenu();
+        } else if (clicking.IndexOf("Main Menu") > -1) {
+            levelLoad.LoadLevel("GameMenu");
         }
     }
 
     private static string IsClicking(Vector3 mousePos) {
         RectTransform buttonRect;
+        Vector3 origMousePos = mousePos;
         Debug.Log("MousePosition: " + mousePos.x + "," + mousePos.y);
-        mousePos = Camera.main.WorldToScreenPoint(mousePos);
-        Debug.Log("MousePosition Screen: " + mousePos.x + "," + mousePos.y);
-        mousePos = Camera.main.WorldToViewportPoint(mousePos);
-        Debug.Log("MousePosition Viewport: " + mousePos.x + "," + mousePos.y);
+        
         // Expecting pivot positions for Pause Menu buttons to be at 0,0 local coords
+        Vector3[] corners = new Vector3[4];
         for (int i = 0; i < pauseButtons.Length; i++) {
-            buttonRect = pauseButtons[i].GetComponent<RectTransform>();
-            Debug.Log("Rect: " + buttonRect.rect.x + "," + buttonRect.rect.y + "," + "," + buttonRect.rect.width + "," + buttonRect.rect.height);
-            if (mousePos.x >= buttonRect.rect.x && 
-                mousePos.x <= buttonRect.rect.x + buttonRect.rect.width &&
-                mousePos.y >= buttonRect.rect.y && 
-                mousePos.y <= buttonRect.rect.y + buttonRect.rect.height) {
-                return pauseButtons[i].name;
+            if (pauseButtons[i] != null) {
+                buttonRect = pauseButtons[i].GetComponent<RectTransform>();
+                buttonRect.GetWorldCorners(corners);
+                Debug.Log("Button Corners:" + corners[0] + "," + corners[1] + "," + corners[2] + "," + corners[3]);
+                if (mousePos.x >= corners[0].x && 
+                    mousePos.x <= corners[2].x &&
+                    mousePos.y >= corners[0].y && 
+                    mousePos.y <= corners[1].y) {
+                    Debug.Log("Found it!");
+                    return pauseButtons[i].name;
+                }
             }
         }
         return "";
