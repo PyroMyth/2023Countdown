@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class InputSystemInputs : MonoBehaviour {
     [Header("Character Input Values")]
@@ -20,17 +21,23 @@ public class InputSystemInputs : MonoBehaviour {
     public float maxDistance = 10f;
 
     private Camera mainCamera;
+    private PauseMenu pauseMenu;
+    private bool isPaused = false;
+    private PlayerInput playerInput;
 
     public void Start() {
         mainCamera = Camera.main;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     public void OnMove(InputValue value) {
-        MoveInput(value.Get<Vector2>());
+        // if (!isPaused) {
+            MoveInput(value.Get<Vector2>());
+        // }
     }
 
     public void OnLook(InputValue value) {
-        if (cursorInputForLook) {
+        if (/*!isPaused && */cursorInputForLook) {
             // Debug.Log("OnLook - Raw: " + value.Get<Vector2>() + ", Viewport: " + Camera.main.ScreenToViewportPoint(value.Get<Vector2>()) + ", World: " + Camera.main.ScreenToWorldPoint(value.Get<Vector2>()));
             // GameObject crossHand = GameObject.Find("CrossHand");
             // Debug.Log("Mouse - Raw: " + crossHand.transform.position + ", Viewport: " + Camera.main.ScreenToViewportPoint(crossHand.transform.position) + ", World: " + Camera.main.ScreenToWorldPoint(crossHand.transform.position));
@@ -39,15 +46,33 @@ public class InputSystemInputs : MonoBehaviour {
     }
 
     public void OnSprint(InputValue value) {
-        SprintInput(value.isPressed);
+        // if (!isPaused) {
+            SprintInput(value.isPressed);
+        // }
     }
 
     public void OnGrab(InputValue value) {
-        // GameObject crossHand = GameObject.Find("CrossHand");
-        // Debug.Log("Raw: " + crossHand.transform.position + ", Viewport: " + Camera.main.ScreenToViewportPoint(crossHand.transform.position) + ", World: " + Camera.main.ScreenToWorldPoint(crossHand.transform.position));
-        // Cross Hand position does not get updated for some reason - using same coords as the CrossHand script that tracks the mouse movement
         Vector3 mousePosition = new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0f);
-        GrabInput(mousePosition);
+        // if (!isPaused) {
+            // GameObject crossHand = GameObject.Find("CrossHand");
+            // Debug.Log("Raw: " + crossHand.transform.position + ", Viewport: " + Camera.main.ScreenToViewportPoint(crossHand.transform.position) + ", World: " + Camera.main.ScreenToWorldPoint(crossHand.transform.position));
+            // Cross Hand position does not get updated for some reason - using same coords as the CrossHand script that tracks the mouse movement
+            GrabInput(mousePosition);
+        // } else {
+        //     PauseMenu.HandleClick(mousePosition);
+        // }
+    }
+
+    public void OnPause(InputValue value) {
+        TogglePause();
+    }
+
+    public void OnClick(InputValue value) {
+        if (isPaused) {
+            Vector3 mousePosition = new Vector3(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue(), 0f);
+            Debug.Log(mousePosition);
+            HandlePauseClick(mousePosition);
+        }
     }
 
     public void MoveInput(Vector2 newMoveDirection) {
@@ -96,6 +121,34 @@ public class InputSystemInputs : MonoBehaviour {
                 break;
             }
         }
+    }
+
+    public void TogglePause() {
+        Debug.Log("In TogglePause...isPaused before toggle? " + isPaused);
+        PauseMenu.Toggle(isPaused);
+        isPaused = !isPaused;
+        Debug.Log("In TogglePause...isPaused after toggle? " + isPaused);
+        if (isPaused) {
+            playerInput.SwitchCurrentActionMap("UI");
+        } else {
+            // Use a co-routine to switch back to the player action map
+            // This way, if a pause button is on top of an item in the scene,
+            // it won't be grabbed as the pause is being toggled off
+            StartCoroutine(SwitchToPlayerActionMap());
+        }
+    }
+
+    private IEnumerator SwitchToPlayerActionMap() {
+        yield return new WaitForSecondsRealtime(0.5f);
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+
+    private void HandlePauseClick(Vector3 mousePosition) {
+        PauseMenu.HandleClick(mousePosition);
+    }
+
+    public bool GetIsPaused() {
+        return isPaused;
     }
 
     private void OnApplicationFocus(bool hasFocus) {
