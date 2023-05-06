@@ -11,15 +11,16 @@ FEAT_4.3			Kitchen
 FEAT_4.4			Bathroom
 FEAT_4.5			Bedroom
 FEAT_4.6			Basement
-FEAT_5				Implement method to save progress
+FEAT_5		L		Implement method to save progress and high scores
 FEAT_6		A		Implement Arms and animation
-FEAT_7		L		In-game menu, pause, etc.
+FEAT_8		L		Create New Level Template
 
 		FUNCTIONAL UPDATES
 FUNC_1.1			Add High Scores to Main Menu
 
 		COMPLETED
-DONE		L		When countdown gets close to zero, red border pulses on screen
+DONE			L		When countdown gets close to zero, red border pulses on screen
+DONE FEAT_7		L		In-game menu, pause, etc.
 
 		NICE TO HAVES (Potential content for game updates)
 		Power-ups (thanks JoshuaY! & LeoG! &IanR!)
