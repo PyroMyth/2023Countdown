@@ -84,11 +84,6 @@ public class InputSystemInputs : MonoBehaviour {
     public void MoveInput(Vector2 newMoveDirection) {
         move = newMoveDirection;
         anim.Play("Run");
-        // check if player is not moving
-        //if (value == null)
-        //{
-        //    anim.Play("Idle");
-        //}
     }
 
     public void LookInput(Vector2 newLookDirection) {
