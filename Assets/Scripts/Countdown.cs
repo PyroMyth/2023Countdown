@@ -24,7 +24,7 @@ public class Countdown : MonoBehaviour {
     private bool counterRunning;
 
     // Warning Pulse Variables
-    private GameObject warningImage;
+    public GameObject warningImage;
     private Graphic warningPulse;
     private Color pulseColor;
     private float pulseTimer;
@@ -33,6 +33,7 @@ public class Countdown : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         // Initialize Counter
+        warningImage.SetActive(false);
         counter = counterSeconds;
         counterRunning = true;
 
@@ -94,6 +95,7 @@ public class Countdown : MonoBehaviour {
     private IEnumerator WarningPulse() {
         // If the counter is running
         if (counterRunning) {
+            warningImage.SetActive(true);
             // If we are increasing the alpha
             if (isAdding) {
                 pulseColor.a += alphaStep;
