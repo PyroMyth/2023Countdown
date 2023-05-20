@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class InputSystemInputs : MonoBehaviour {
+    // declare animation variable
+    private Animation anim;
+
     [Header("Character Input Values")]
     public Vector2 move;
     public Vector2 look;
@@ -28,11 +31,14 @@ public class InputSystemInputs : MonoBehaviour {
     public void Start() {
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
+        // grab the animation component from the boy
+        anim = transform.Find("Boy").GetComponent<Animation>();
     }
 
     public void OnMove(InputValue value) {
         // if (!isPaused) {
-            MoveInput(value.Get<Vector2>());
+        MoveInput(value.Get<Vector2>());
+        
         // }
     }
 
@@ -77,6 +83,15 @@ public class InputSystemInputs : MonoBehaviour {
 
     public void MoveInput(Vector2 newMoveDirection) {
         move = newMoveDirection;
+        if(move.magnitude == 0)
+        {
+            anim.Play("Idle");
+        }
+        else
+        {
+            anim.Play("Run");
+        }
+        
     }
 
     public void LookInput(Vector2 newLookDirection) {
