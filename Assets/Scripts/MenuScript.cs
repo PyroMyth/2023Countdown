@@ -11,7 +11,7 @@ public class MenuScript : MonoBehaviour {
     private Dictionary<string, string> panelAKAs = new Dictionary<string, string>(){
         {"main", "Panel Main Menu"},
         {"level", "Panel Select Level"},
-        // {"score": "Panel High Score"},
+        {"scores", "Panel High Score"},
         {"options", "Panel Options"},
         {"credits", "Panel Credits"}
     };
@@ -21,15 +21,8 @@ public class MenuScript : MonoBehaviour {
     void Awake() {
         // Find the panels
         foreach (KeyValuePair<string, string> kvp in panelAKAs) {
-            Debug.Log("key=" + kvp.Key + " value=" + kvp.Value);
             panels.Add(kvp.Key, GameObject.Find(kvp.Value));
-            Debug.Log(kvp.Key + " = " + panels[kvp.Key].name);
         }
-        // mainMenu = GameObject.Find("Panel Main Menu");
-        // levelSelect = GameObject.Find("Panel Level Select");
-        // highScores = GameObject.Find("Panel High Score");
-        // options = GameObject.Find("Panel Options");
-        // credits = GameObject.Find("Panel Credits");
     }
 
     void Start() {
@@ -56,7 +49,7 @@ public class MenuScript : MonoBehaviour {
     }
 
     public void ClickStartTutorial() {
-        // TODO: Load the Tutorial level
+        // Load the Tutorial level
         SceneManager.LoadScene(tutorialScene);
     }
 
@@ -66,7 +59,7 @@ public class MenuScript : MonoBehaviour {
     }
 
     public void ClickBackToMenu() {
-        // TODO: Return to the Main Menu panel
+        // Return to the Main Menu panel
         ActivatePanel("main");
     }
 

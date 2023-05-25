@@ -16,7 +16,7 @@ FEAT_6		A		Implement Arms and animation
 FEAT_7		L		In-game menu, pause, etc.
 
 		FUNCTIONAL UPDATES
-FUNC_1.1			Add High Scores to Main Menu
+FUNC_1.1	L		Add High Scores to Main Menu
 
 		COMPLETED
 DONE		L		When countdown gets close to zero, red border pulses on screen
