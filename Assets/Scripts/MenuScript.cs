@@ -39,9 +39,6 @@ public class MenuScript : MonoBehaviour {
 
     public void ClickHighScores() {
         ActivatePanel("scores");
-        
-        // TODO: Load the high scores
-        // HighScores.Load();
     }
 
     public void ClickCredits() {
