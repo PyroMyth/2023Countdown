@@ -7,7 +7,7 @@ public class MenuScript : MonoBehaviour {
     public string tutorialScene;
     public string gameScene;
 
-    // private List<GameObject> panels;
+    // A map of a short name for a panel to the full name of the GameObject
     private Dictionary<string, string> panelAKAs = new Dictionary<string, string>(){
         {"main", "Panel Main Menu"},
         {"level", "Panel Select Level"},
@@ -16,10 +16,11 @@ public class MenuScript : MonoBehaviour {
         {"credits", "Panel Credits"}
     };
 
+    // A map of the short name for a panel to the GameObject containing the panel
     private Dictionary<string, GameObject> panels = new Dictionary<string, GameObject>();
 
     void Awake() {
-        // Find the panels
+        // Find the panels and populate the map
         foreach (KeyValuePair<string, string> kvp in panelAKAs) {
             panels.Add(kvp.Key, GameObject.Find(kvp.Value));
         }
@@ -51,7 +52,6 @@ public class MenuScript : MonoBehaviour {
     }
 
     public void ClickStartGame() {
-        // TODO: Load the main game
         SceneManager.LoadScene(gameScene);
     }
 
@@ -60,6 +60,20 @@ public class MenuScript : MonoBehaviour {
         ActivatePanel("main");
     }
 
+    /**
+      *
+      * Helper method to activate a panel.
+      *
+      * This method loops through all panels
+      * found in the Awake method and disables
+      * all except the specified panel
+      *
+      * @param panel - the short name of the panel
+      *                 that should be made visible
+      *                 All other panels will be
+      *                 disabled
+      *
+      */
     private void ActivatePanel(string panel) {
         foreach (KeyValuePair<string, GameObject> kvp in panels) {
             if (kvp.Key.ToLower() != panel.ToLower()) {
