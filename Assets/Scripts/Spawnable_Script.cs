@@ -8,6 +8,9 @@ public class Spawnable_Script : MonoBehaviour
     public GameObject[] trash_prefabs;
 
     public GameObject[] belongings_prefabs;
+    // 
+    public int minDistance;
+    public int maxDistance;
 
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
