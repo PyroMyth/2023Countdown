@@ -8,9 +8,14 @@ public class Spawnable_Script : MonoBehaviour
     public GameObject[] trash_prefabs;
 
     public GameObject[] belongings_prefabs;
-    // 
-    public int minDistance;
-    public int maxDistance;
+    [Header("X Distance")]
+    public int minDistancex;
+    public int maxDistancex;
+    [Header("Z Distance")]
+    public int minDistancez;
+    public int maxDistancez;
+
+
 
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
@@ -43,7 +48,7 @@ public class Spawnable_Script : MonoBehaviour
             // find the ground
             GameObject instantiate_target = GameObject.FindGameObjectWithTag(target);
             // grab a random position
-            SpawnPos = new Vector3(Random.Range(-10f, 10), 1, Random.Range(-10f, 10f));
+            SpawnPos = new Vector3(Random.Range(minDistancex, maxDistancex), 1, Random.Range(minDistancez, maxDistancez));
             // grab a random rotation
             RotatePos = new Quaternion(0, Random.Range(0f, 100f), 0, 0);
 
