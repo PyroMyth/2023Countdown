@@ -74,10 +74,14 @@ public class Countdown : MonoBehaviour {
                 }
             }
             // If time is up
-            if (counter <= 0) {
+            if (counter <= 0 && counterRunning) {
                 // Stop the counter
                 counter = 0;
                 counterRunning = false;
+                Debug.Log("This is the END OF THE GAME!");
+                // Initiate the end game functionality
+                Scorekeeper.EndGame();
+                gameObject.SetActive(false);
             }
             // Run the code to update the counter value
             SetCounter(counter);

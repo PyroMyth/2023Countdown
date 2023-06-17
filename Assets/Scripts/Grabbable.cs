@@ -10,6 +10,6 @@ public class Grabbable : MonoBehaviour {
     }
 
     protected void ApplyPoints() {
-        // TODO: add logic to apply points to player's score
+        Scorekeeper.ChangeScore(points);
     }
 }

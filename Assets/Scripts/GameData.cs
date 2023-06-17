@@ -96,9 +96,12 @@ public class GameData : MonoBehaviour {
       */
     public static List<GameObject> GetHighScores(List<GameObject> scoreObjects) {
         List<GameObject> retVal = new List<GameObject>();
-        if (highScores.scores.Count > 0) {
+        Debug.Log(scoreObjects.Count + ", " + highScores.scores.Count);
+        if (highScores.scores.Count > 0 && scoreObjects.Count > 0) {
             for (int i = 0; i < highScores.scores.Count; i++) {
-                retVal.Add(GetHighScoreGameObject(highScores.scores[i], scoreObjects[i]));
+                if (scoreObjects.Count > i) {
+                    retVal.Add(GetHighScoreGameObject(highScores.scores[i], scoreObjects[i]));
+                }
             }
         }
         if (retVal.Count < scoreObjects.Count) {
