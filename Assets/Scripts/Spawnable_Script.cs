@@ -9,6 +9,26 @@ public class Spawnable_Script : MonoBehaviour
 
     public GameObject[] belongings_prefabs;
 
+<<<<<<< Updated upstream
+=======
+    public int trash_spawn_count;
+    public int belonging_spawn_count;
+
+    [Header("X Distance")]
+    public int minDistancex;
+    public int maxDistancex;
+
+    [Header("Z Distance")]
+    public int minDistancez;
+    public int maxDistancez;
+
+    // create a variable of type int to keep track of number of belgongings created
+
+    // everytime 
+
+
+
+>>>>>>> Stashed changes
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
     private Quaternion RotatePos;
@@ -19,9 +39,15 @@ public class Spawnable_Script : MonoBehaviour
     {
         
         tableArray = GameObject.FindGameObjectsWithTag("Table");
+<<<<<<< Updated upstream
         SpawnRandom("Table", 10, belongings_prefabs);
         SpawnRandom("Ground", 10, trash_prefabs);
 
+=======
+        SpawnRandom("Table", belonging_spawn_count, belongings_prefabs);
+        SpawnRandom("Ground", belonging_spawn_count, belongings_prefabs);
+        SpawnRandom("Ground", trash_spawn_count, trash_prefabs);
+>>>>>>> Stashed changes
     }
 
     /*spawns objects in a random position

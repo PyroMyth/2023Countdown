@@ -10,6 +10,8 @@ TagManager:
   - Table
   - SpawnBlocker
   - Button
+  - Belonging
+  - Trash
   layers:
   - Default
   - TransparentFX

@@ -116,7 +116,7 @@ public class InputSystemInputs : MonoBehaviour {
         if (SceneManager.GetActiveScene().name.Contains("Tutorial")) {
             for (int i = 0; i < hits.Length; i++) {
                 hit = hits[i];
-                Debug.Log("Hit #" + i + " = " + hit.transform.gameObject.name);
+                //Debug.Log("Hit #" + i + " = " + hit.transform.gameObject.name);
                 TutorialHelper helper = hit.transform.gameObject.GetComponent<TutorialHelper>();
                 if (helper != null) {
                     helper.ExecuteGrab();
@@ -128,11 +128,11 @@ public class InputSystemInputs : MonoBehaviour {
         Grabbable grabbed;
         for (int i = 0; i < hits.Length; i++) {
             hit = hits[i];
-            Debug.Log("Hit #" + i + " = " + hit.transform.gameObject.name);
+            //Debug.Log("Hit #" + i + " = " + hit.transform.gameObject.name);
             grabbed = hit.transform.gameObject.GetComponent<Grabbable>();
             if (grabbed != null) {
                 grabbed.ExecuteGrab();
-                Debug.Log("Goodbye!");
+                //Debug.Log("Goodbye!");
                 break;
             }
         }

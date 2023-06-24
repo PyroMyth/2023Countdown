@@ -8,6 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream:Assets/House_Objects/Trash/Bottle1_2.prefab
   - component: {fileID: 432792}
   - component: {fileID: 3338664}
   - component: {fileID: 2347508}
@@ -15,6 +16,17 @@ GameObject:
   m_Layer: 0
   m_Name: Bottle1_2
   m_TagString: Untagged
+=======
+  - component: {fileID: 1800374565759759206}
+  - component: {fileID: 3410329607949073603}
+  - component: {fileID: 628001443711666185}
+  - component: {fileID: 6561029409359457666}
+  - component: {fileID: 9016652357764083747}
+  - component: {fileID: 6289368921040785097}
+  m_Layer: 0
+  m_Name: Bowl
+  m_TagString: Belonging
+>>>>>>> Stashed changes:Assets/AndresAssets/SpawnableObjects/Belongings/Bowl.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +105,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140520}
   m_Enabled: 1
+<<<<<<< Updated upstream:Assets/House_Objects/Trash/Bottle1_2.prefab
   m_Avatar: {fileID: 9000000, guid: 695cb951c9e5b2e4ebc1baccb673fbb2, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -104,3 +117,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1
+--- !u!65 &9016652357764083747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420858797759556060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28353992, y: 0.11296506, z: 0.3274037}
+  m_Center: {x: 0, y: 0.05710598, z: 0}
+--- !u!54 &6289368921040785097
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420858797759556060}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> Stashed changes:Assets/AndresAssets/SpawnableObjects/Belongings/Bowl.prefab
