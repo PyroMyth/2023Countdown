@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Template_Level
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 33e1a36fb9e1e404ab8ea89a20182628, type: 3}
+  templateName: Template Level for 2023 Countdown
+  description: "Template level for 2023 Countdown\nContains the GameCanvas with:\n
+    - Countdown timer\n - Warning pulse\n - Pause menu\nContains the PlayerCapsule
+    with:\n - All scripts for new InputSystem and player interaction\n - Container
+    for Main Camera\n - Capsule or Player GameObject\nContains UI_EventSystem with
+    all scripts for UI input system"
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 2800000, guid: 373521f25a25b41488ff07b4cccb48bc, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: b625317bee3114d8ebd5a801f9d0a647, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 3028dc075ba8c584d9bc7d1e0255e038, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 1503420580507735868, guid: 2b3b9f4fe06f345e3b7139aebd80c70f, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: ee148e281f3c41c5b4ff5f8a5afe5a6c, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 2fd6421f253b4ef1a19526541f9ffc0c, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 540735902583188466, guid: 83989b68dad0f9e4498709c799a17e46, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 4309389056724457585, guid: bc04adfdad47347dc873af64e742a804, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 7460370598360829566, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2100000, guid: 6b911390c5825014e8377183a7837d3f, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 6359e7a76eea44fb290cc602ad3acf2f, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 40265a896a0f341bb956e90c59025a29, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    instantiationMode: 1
+  templatePipeline: {fileID: 0}
+  addToDefaults: 0
