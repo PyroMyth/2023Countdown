@@ -41,6 +41,8 @@ public class Countdown : MonoBehaviour {
         counterValue = transform.Find("Countdown Value").GetComponent<TextMeshProUGUI>();
 
         // Initialize Warning Pulse
+        warningImage = transform.Find("Warning Pulse").gameObject;
+        warningImage.SetActive(false);
         warningPulse = transform.Find("Warning Pulse").GetComponent<Graphic>();
         pulseColor = warningPulse.color;
         pulseColor.a = minAlpha;
@@ -64,6 +66,9 @@ public class Countdown : MonoBehaviour {
             counter -= Time.deltaTime;
             // If it's time for the warning pulse
             if (counter <= warningStartTime) {
+                if (!warningImage.activeSelf) {
+                    warningImage.SetActive(true);
+                }
                 // Only run the coroutine if enough time has passed
                 if (pulseTimer > pulseSpeedSeconds) {
                     pulseTimer = 0f;

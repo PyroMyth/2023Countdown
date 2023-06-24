@@ -24,6 +24,8 @@ public class Scorekeeper : MonoBehaviour {
 	// The TextMeshProUGUI element that displays the score
 	private static TMPro.TextMeshProUGUI scoreDisplay;
 	private static GameOverMenu gameOver;
+	private static GameObject timerPanel;
+	private static GameObject scorePanel;
 
 	/**
 	  *
@@ -36,7 +38,9 @@ public class Scorekeeper : MonoBehaviour {
 		score = 0f;
 		scoreDisplay = GameObject.Find("Score Value").transform.GetComponent<TMPro.TextMeshProUGUI>();
 		Scorekeeper.DisplayScore();
-		gameOver = GameObject.Find("Panel Game Over").transform.GetComponent<GameOverMenu>();
+		gameOver = transform.Find("Panel Game Over").transform.GetComponent<GameOverMenu>();
+		timerPanel = transform.Find("Timer").gameObject;
+		scorePanel = transform.Find("Score").gameObject;
 	}
 
 	/**
@@ -56,7 +60,10 @@ public class Scorekeeper : MonoBehaviour {
 	}
 	
 	public static void EndGame() {
+        Debug.Log("score=" + score);
 		gameOver.ToggleEndGame(score);
+		timerPanel.SetActive(false);
+		scorePanel.SetActive(false);
 	}
 	
 	/**

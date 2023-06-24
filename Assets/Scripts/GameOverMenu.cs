@@ -12,6 +12,7 @@ public class GameOverMenu : PanelWithButtons {
     }
 
     public void ToggleEndGame(float score) {
+        Debug.Log("score=" + score);
         inputSystem.EndGame();
         myPanel.SetActive(true);
         // Populate the final score info in the panel

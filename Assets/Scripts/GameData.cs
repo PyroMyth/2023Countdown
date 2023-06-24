@@ -9,9 +9,9 @@ public class GameData : MonoBehaviour {
     // The internal reference to the High Scores data structure
     private static HighScores highScores;
     // The game objects displayed that contain the high score information
-    private List<GameObject> scoreGameObjects;
+    private static List<GameObject> scoreGameObjects;
     // Backup copies of the default high score objects for use when clearing the high scores
-    private List<GameObject> clearedScoreGameObjects;
+    private static List<GameObject> clearedScoreGameObjects;
 
     public void Awake() {
         // Instantiate our backup list of the default high score objects
@@ -96,15 +96,15 @@ public class GameData : MonoBehaviour {
       */
     public static List<GameObject> GetHighScores(List<GameObject> scoreObjects) {
         List<GameObject> retVal = new List<GameObject>();
-        Debug.Log(scoreObjects.Count + ", " + highScores.scores.Count);
-        if (highScores.scores.Count > 0 && scoreObjects.Count > 0) {
+        Debug.Log(scoreObjects?.Count + ", " + highScores?.scores?.Count);
+        if (highScores != null && highScores.scores != null && highScores.scores.Count > 0 && scoreObjects.Count > 0) {
             for (int i = 0; i < highScores.scores.Count; i++) {
                 if (scoreObjects.Count > i) {
                     retVal.Add(GetHighScoreGameObject(highScores.scores[i], scoreObjects[i]));
                 }
             }
         }
-        if (retVal.Count < scoreObjects.Count) {
+        if (retVal.Count < scoreObjects.Count && scoreObjects != null && scoreObjects.Count > 0) {
             for (int i = retVal.Count - 1; i < scoreObjects.Count; i++) {
                 retVal.Add(scoreObjects[i]);
             }
@@ -125,12 +125,14 @@ public class GameData : MonoBehaviour {
       * populate the High Score data that was loaded
       *
       */
-    private void LoadScores() {
+    private static void LoadScores() {
         GetScoreGameObjects();
-        for (int i = 0; i < scoreGameObjects.Count; i++) {
-            clearedScoreGameObjects.Add(scoreGameObjects[i]);
+        if (scoreGameObjects.Count > 0) {
+            for (int i = 0; i < scoreGameObjects.Count; i++) {
+                clearedScoreGameObjects.Add(scoreGameObjects[i]);
+            }
+            scoreGameObjects = GetHighScores(scoreGameObjects);
         }
-        scoreGameObjects = GetHighScores(scoreGameObjects);
     }
 
     /**
@@ -143,7 +145,7 @@ public class GameData : MonoBehaviour {
       * the scoreGameObjects list in the appropriate order.
       * 
       */
-    private void GetScoreGameObjects() {
+    private static void GetScoreGameObjects() {
         scoreGameObjects = new List<GameObject>();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("HighScoreGameObject");
         string name;

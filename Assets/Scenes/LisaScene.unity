@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 111
 --- !u!54 &43612091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 250
 --- !u!54 &88661191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 10
 --- !u!54 &1056561643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -961,7 +961,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 39
+--- !u!1 &1173107904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 285975060359347535, guid: 83989b68dad0f9e4498709c799a17e46, type: 3}
+  m_PrefabInstance: {fileID: 540735903174336918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173107908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173107904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283bc41bb7d88cc4d989448e43663878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1567349545 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1065716986240722975, guid: b377eae9420e54dd889a0826dd15dd8a, type: 3}
@@ -1105,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 22
 --- !u!1 &2128304621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceae708d5f9d4d9f8d4c6a2a0db6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  points: 500
 --- !u!54 &2128304623
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1241,6 +1258,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540735901729339332, guid: 83989b68dad0f9e4498709c799a17e46, type: 3}
+      propertyPath: counterSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 540735901729339332, guid: 83989b68dad0f9e4498709c799a17e46, type: 3}
+      propertyPath: warningStartTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 540735902583188465, guid: 83989b68dad0f9e4498709c799a17e46, type: 3}
       propertyPath: m_Camera
       value: 
