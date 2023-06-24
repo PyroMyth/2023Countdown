@@ -17,6 +17,7 @@ FEAT_7		L		In-game menu, pause, etc.
 
 		FUNCTIONAL UPDATES
 FUNC_1.1	L		Add High Scores to Main Menu
+FUNC_1.2	A		Trigger Game Over Screen when all items are grabbed
 
 		COMPLETED
 DONE		L		When countdown gets close to zero, red border pulses on screen
