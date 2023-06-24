@@ -6,8 +6,22 @@ public class Spawnable_Script : MonoBehaviour
 {
     // variables that grab array of trash and belongings
     public GameObject[] trash_prefabs;
-
     public GameObject[] belongings_prefabs;
+
+    [SerializeField]
+    private int trash_spawn_count;
+    [SerializeField]
+    private int belonging_spawn_count;
+
+    [Header("X Distance")]
+    public int minDistancex;
+    public int maxDistancex;
+
+    [Header("Z Distance")]
+    public int minDistancez;
+    public int maxDistancez;
+
+
 
     // delcare two variables of the min and max distance gameobjects can spawn
     private Vector3 SpawnPos;
@@ -19,8 +33,8 @@ public class Spawnable_Script : MonoBehaviour
     {
         
         tableArray = GameObject.FindGameObjectsWithTag("Table");
-        SpawnRandom("Table", 10, belongings_prefabs);
-        SpawnRandom("Ground", 10, trash_prefabs);
+        SpawnRandom("Table", belonging_spawn_count, belongings_prefabs);
+        SpawnRandom("Ground", trash_spawn_count, trash_prefabs);
 
     }
 
@@ -40,7 +54,7 @@ public class Spawnable_Script : MonoBehaviour
             // find the ground
             GameObject instantiate_target = GameObject.FindGameObjectWithTag(target);
             // grab a random position
-            SpawnPos = new Vector3(Random.Range(-10f, 10), 1, Random.Range(-10f, 10f));
+            SpawnPos = new Vector3(Random.Range(minDistancex, maxDistancex), 1, Random.Range(minDistancez, maxDistancez));
             // grab a random rotation
             RotatePos = new Quaternion(0, Random.Range(0f, 100f), 0, 0);
 

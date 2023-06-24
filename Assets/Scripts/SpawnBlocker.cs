@@ -12,7 +12,8 @@ public class SpawnBlocker : MonoBehaviour
     {
         if (other.CompareTag(table_check) || other.CompareTag(ground_check))
         {
-            Destroy(gameObject);
+            Destroy(other.gameObject);
+            Debug.Log(other.name);
         }
     }
 }
